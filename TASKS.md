@@ -168,7 +168,8 @@ One-way inbox from the user (or main agent) to the cron. Write notes here betwee
 
 **Key behaviors:**
 - Cron reads NOTES.md at the **start** of every session
-- Cron **immediately wipes NOTES.md** after reading (replace with `# Notes\n`)
+- Cron **immediately wipes NOTES.md** after reading (reset it to exactly `# Notes\n`)
+  - If `NOTES.md` is already exactly `# Notes\n`, treat it as already-wiped (no error). Prefer overwrite/skip over strict replace/edit that can no-op.
 - Then acts on the notes during the session — some notes are tasks to do, some are facts to remember, some are priority changes
 - Wire lasting knowledge into CONTEXT.md or HANDOFF.md when appropriate (during or at end of session)
 - This prevents the cron from overwriting user instructions — user writes NOTES.md, cron writes HANDOFF.md, no conflicts

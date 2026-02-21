@@ -31,7 +31,9 @@ After reading TASK.md, before doing the work:
 1. **Read `HANDOFF.md`** — Understand current state, what happened last time, advice from previous run
 2. **Read `CONTEXT.md`** — Long-term project facts
 3. **Read `NOTES.md`** — Direct instructions from the user or main session (your manager). **NOTES.md is the highest-priority input.** If notes change direction, reprioritize, or override your previous plan — follow them. They supersede whatever HANDOFF.md says. Deprioritize everything else accordingly.
-   - **Immediately wipe NOTES.md** after reading (replace with `# Notes\n`).
+   - **Immediately wipe NOTES.md** after reading (reset it to exactly `# Notes\n`).
+     - If `NOTES.md` is already exactly `# Notes\n`, treat it as already-wiped (do not fail the run).
+     - Prefer overwriting the whole file (write) or skipping the wipe when no change is needed; avoid strict replace/edit steps that can no-op and get misreported as errors.
    - **Carry forward into HANDOFF.md**: If notes set a new direction or priority shift, reflect that in your HANDOFF.md so the next run continues on the new course (not the old one). Don't let priority changes die with the wipe.
    - Wire lasting knowledge into CONTEXT.md when appropriate.
 4. **Optionally read `USER-TODO.md`** — Check if the user completed something you were waiting on. If they did, remove the item and proceed with work that was unblocked.
